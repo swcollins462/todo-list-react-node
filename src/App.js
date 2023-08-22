@@ -7,13 +7,39 @@ import CompletedTodos from './components/CompletedTodos';
 function App() {
   const [todos, setTodos] = useState([]);
 
-  useEffect(() => {
+  const loadData = () => {
     fetch('https://p39zj3-8080.csb.app/api/todos')
-      .then(x => x.json())
-      .then(response => {
-        setTodos(response);
-      })
-  }, []);
+    .then(x => x.json())
+    .then(response => {
+      setTodos(response);
+    });
+  };
+
+  useEffect(loadData, []);
+
+  const addTodo = (title, description) => {
+    fetch('https://p39zj3-8080.csb.app/api/todos/new', {
+      method: 'POST',
+      body: JSON.stringify({
+        title,
+        description
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+      mode: 'cors'
+    }).then(loadData);
+  }
+
+  const deleteTodo = (id) => {
+    fetch('https://p39zj3-8080.csb.app/api/todos/' + id, {
+      method: 'DELETE',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+      mode: 'cors',
+    }).then(loadData);
+  };
 
   return (
     <div className="App">
@@ -21,8 +47,8 @@ function App() {
         <h1>React Todo List</h1>
       </header>
       <main>
-        <TodoForm />
-        <TodoList todos={todos} />
+        <TodoForm addTodo={addTodo} />
+        <TodoList todos={todos} deleteTodo={deleteTodo} />
       </main>
     </div>
   );
