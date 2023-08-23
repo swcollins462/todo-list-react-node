@@ -41,6 +41,21 @@ function App() {
     }).then(loadData);
   };
 
+  const markCompleted = (id, is_completed, date_completed) => {
+    fetch('https://p39zj3-8080.csb.app/api/todos/' + id, {
+      method: 'PUT',
+      body: JSON.stringify({
+        is_completed,
+        date_completed
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+        'Access-Control-Allow-Origin': '*',
+      },
+      mode: 'cors',
+    }).then(loadData);
+  }
+
   return (
     <div className="App">
       <header>
@@ -48,7 +63,9 @@ function App() {
       </header>
       <main>
         <TodoForm addTodo={addTodo} />
-        <TodoList todos={todos} deleteTodo={deleteTodo} />
+        <TodoList todos={todos} deleteTodo={deleteTodo} markCompleted={markCompleted} />
+        <h2>Completed Todos</h2>
+        <CompletedTodos todos={todos} deleteTodo={deleteTodo} />
       </main>
     </div>
   );
