@@ -12,6 +12,7 @@ body {
 :root {
     --accent-color: #00b05b;
     --accent-hover: #00ba70;
+    --todo-item-background: #3c3c3c;
 }
 
 h1 {
@@ -80,7 +81,6 @@ h1 {
 .todo-form-btn:focus {
     outline: none;
     background-color: var(--accent-hover);
-    box-shadow: 0 0 8px var(--accent-hover);
 }
 
 .btn-area {
@@ -105,14 +105,12 @@ h1 {
 .selector-btn:hover {
     outline: none;
     background-color: #727272;
-    box-shadow: 0 0 6px #727272;
 }
 
 .selector-btn.active:focus,
 .selector-btn.active:hover {
     outline: none;
     background-color: var(--accent-hover);
-    box-shadow: 0 0 6px var(--accent-hover); 
 }
 
 .todo-list > ul {
@@ -123,13 +121,13 @@ h1 {
 }
 
 .todo-item {
-    background-color: #414141;
+    background-color: var(--todo-item-background);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 2rem;
     margin-bottom: 1rem;
-    box-shadow: 0 3px 5px #1b1b1b;
+    box-shadow: 3px 3px 8px #111;
 }
 
 .todo-title {
@@ -147,7 +145,7 @@ h1 {
 
 .delete-btn,
 .completed-btn {
-    background-color: #414141;
+    background-color: var(--todo-item-background);
     border: none;
     font-size: 2.5rem;
     cursor: pointer;
@@ -155,7 +153,7 @@ h1 {
 
 .delete-btn {
     margin-right: 5px;
-    color: rgba(255, 0, 0, 0.8);
+    color: #f00038;
 }
 
 .completed-btn {
@@ -170,6 +168,54 @@ h1 {
 
 .completed-btn:focus,
 .completed-btn:hover {
-    outline-color: var(--accent-hover);
-    color: var(--accent-hover);
+    outline-color: #00da8e;
+    color: #00ca7f;
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 8px;
+    }
+
+    h1 {
+        margin-bottom: 1.5rem;
+    }
+
+    .App {
+        width: 85%;
+        padding: 1rem 2rem;
+    }
+
+    .todo-form {
+        margin-left: auto;
+        margin-right: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .todo-form-label {
+        margin-top: 0.5rem;
+    }
+
+    .todo-form-btn {
+        width: fit-content;
+        padding: 0.5rem 1.25rem;
+    }
+
+    .btn-area {
+        display: flex;
+        justify-content: center;
+    }
+
+    .todo-desc {
+        font-size: 1rem;
+    }
+
+    .delete-btn, .completed-btn {
+        padding: 0;
+    }
+
+    .delete-btn {
+        margin-left: 1.5rem;
+    }
 }

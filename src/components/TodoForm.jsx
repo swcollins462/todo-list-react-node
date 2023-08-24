@@ -1,14 +1,16 @@
-import { useState} from 'react'
+import { useState, useRef } from 'react'
 
 export default function TodoForm(props) {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const buttonRef = useRef(null);
 
     const handleSubmit = (event) => {
         event.preventDefault();
         props.addTodo(title, description);
         setTitle('');
         setDescription('');
+        buttonRef.current.blur();
     }
 
     function handleTitleChange(event) {
@@ -47,7 +49,7 @@ export default function TodoForm(props) {
                     onChange={handleDescChange}
                 />
             </div>
-            <button type='submit' className='todo-form-btn'>Add</button>
+            <button type='submit' className='todo-form-btn' ref={buttonRef}>Add</button>
         </form>
     </div>
   )
