@@ -2,7 +2,7 @@
 
 Project by Stephen Collins
 
-Hosting link: https://swcollins462.github.io/todo-list-react-node/
+Hosting link: https://swcollins462.github.io/todo-list-react-node/  
 Node.js server: https://codesandbox.io/p/sandbox/todo-list-node-react-p39zj3
 
 React todo list allows user to add todo items, mark items as complete, and delete items. Todo list data is stored in an SQL database hosted on a Node.js server.
