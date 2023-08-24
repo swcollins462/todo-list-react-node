@@ -24,13 +24,13 @@ Future improvements could include:
 # User Stories
 
 ```
-AS A student
-I WANT TO record when each step of my project is completed
-SO THAT I can track my progress
-
 AS A sales person
 I WANT TO list my todo items in an app
 SO THAT I don’t have to keep paper lists
+
+AS A student
+I WANT TO record when each step of my project is completed
+SO THAT I can track my progress
 
 AS A user of multiple devices
 I WANT TO store my todo items in the cloud
