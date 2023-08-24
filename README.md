@@ -23,7 +23,7 @@ Future improvements could include:
 
 # User Stories
 
-`
+```
 AS A student
 I WANT TO record when each step of my project is completed
 SO THAT I can track my progress
@@ -35,4 +35,4 @@ SO THAT I don’t have to keep paper lists
 AS A user of multiple devices
 I WANT TO store my todo items in the cloud
 SO THAT I can access them from all my devices
-`
+```
