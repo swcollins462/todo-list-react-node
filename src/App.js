@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import TodoForm from './components/TodoForm';
+import SelectorButtons from './components/SelectorButtons';
 import TodoList from './components/TodoList';
 import CompletedTodos from './components/CompletedTodos';
 
 function App() {
   const [todos, setTodos] = useState([]);
+  const [showCompleted, setShowCompleted] = useState(false);
 
   const loadData = () => {
     fetch('https://p39zj3-8080.csb.app/api/todos')
@@ -63,9 +65,13 @@ function App() {
       </header>
       <main>
         <TodoForm addTodo={addTodo} />
-        <TodoList todos={todos} deleteTodo={deleteTodo} markCompleted={markCompleted} />
-        <h2>Completed Todos</h2>
-        <CompletedTodos todos={todos} deleteTodo={deleteTodo} />
+        <SelectorButtons
+          showCompleted={showCompleted}
+          setShowCompleted={setShowCompleted} />
+        {showCompleted
+          ? <CompletedTodos todos={todos} deleteTodo={deleteTodo} />
+          : <TodoList todos={todos} deleteTodo={deleteTodo} markCompleted={markCompleted} />
+        }
       </main>
     </div>
   );

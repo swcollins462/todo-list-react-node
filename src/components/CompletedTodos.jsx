@@ -1,4 +1,4 @@
-import React from 'react'
+import { RiDeleteBin6Line } from 'react-icons/ri';
 
 function CompletedTodoItem(props) {
 
@@ -6,12 +6,20 @@ function CompletedTodoItem(props) {
     props.deleteTodo(props.id);
   }
 
+  const dateCompletedString = new Date(props.date_completed).toLocaleString('en-US');
+
   return (
-    <li>
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
-      <p>{props.date_completed}</p>
-      <button onClick={deleteClicked}>DELETE</button>
+    <li className='todo-item'>
+      <div>
+        <p className='todo-title'>{props.title}</p>
+        <p className='todo-desc'>{props.description}</p>
+        <p className='date-completed'>Completed on: {dateCompletedString}</p>
+      </div>
+      <div>
+        <button onClick={deleteClicked} className='delete-btn'>
+          <RiDeleteBin6Line />
+        </button>
+      </div>
     </li>
   )
 }
@@ -31,5 +39,9 @@ export default function CompletedTodos({ todos, deleteTodo }) {
       deleteTodo={deleteTodo} />
   );
 
-  return <ul>{CompletedTodosJsx}</ul>;
+  return (
+    <div className='todo-list'>
+      <ul>{CompletedTodosJsx}</ul>
+    </div>
+  )
 }

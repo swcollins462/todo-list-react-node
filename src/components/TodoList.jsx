@@ -1,4 +1,5 @@
-import React from 'react'
+import { RiDeleteBin6Line } from 'react-icons/ri';
+import { BsCheckLg } from 'react-icons/bs';
 
 function TodoItem(props) {
 
@@ -13,11 +14,19 @@ function TodoItem(props) {
   }
 
   return (
-    <li>
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
-      <button onClick={deleteClicked}>DELETE</button>
-      <button onClick={completedClicked}>COMPLETED</button>
+    <li className='todo-item'>
+      <div>
+        <p className='todo-title'>{props.title}</p>
+        <p className='todo-desc'>{props.description}</p>
+      </div>
+      <div>
+        <button onClick={deleteClicked} className='delete-btn'>
+          <RiDeleteBin6Line />
+        </button>
+        <button onClick={completedClicked} className='completed-btn'>
+          <BsCheckLg />
+        </button>
+      </div>
     </li>
   )
 }
@@ -37,5 +46,9 @@ export default function TodoList({ todos, deleteTodo, markCompleted }) {
       markCompleted={markCompleted} />
   );
 
-  return <ul>{TodosJsx}</ul>;
+  return (
+    <div className='todo-list'>
+        <ul>{TodosJsx}</ul>
+    </div>
+  )
 }

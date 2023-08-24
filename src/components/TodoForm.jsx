@@ -21,25 +21,33 @@ export default function TodoForm(props) {
 
   return (
     <div>
-        <form action='#' method='POST' onSubmit={handleSubmit}>
-            <label htmlFor='title'>Title</label>
-            <input
-                type='text'
-                id='title'
-                name='title'
-                value={title}
-                onChange={handleTitleChange}
-                required
-            />
-            <label htmlFor='description'>Description</label>
-            <input
-                type='text'
-                id='description'
-                name='description'
-                value={description}
-                onChange={handleDescChange}
-            />
-            <button type='submit'>Add</button>
+        <form action='#' method='POST' onSubmit={handleSubmit} className='todo-form'>
+            <div className='input-wrapper'>
+                <label htmlFor='title' className='todo-form-label'>Title</label>
+                <input
+                    type='text'
+                    id='title'
+                    name='title'
+                    value={title}
+                    className='todo-form-input'
+                    placeholder='Name of your task'
+                    onChange={handleTitleChange}
+                    required
+                />
+            </div>
+            <div className='input-wrapper'>
+                <label htmlFor='description' className='todo-form-label'>Description</label>
+                <input
+                    type='text'
+                    id='description'
+                    name='description'
+                    value={description}
+                    className='todo-form-input'
+                    placeholder='optional additional detail'
+                    onChange={handleDescChange}
+                />
+            </div>
+            <button type='submit' className='todo-form-btn'>Add</button>
         </form>
     </div>
   )
