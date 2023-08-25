@@ -25,7 +25,7 @@ function CompletedTodoItem(props) {
 }
 
 export default function CompletedTodos({ todos, deleteTodo }) {
-  let filteredTodos = todos.filter(function (el) {
+  const filteredTodos = todos.filter(function (el) {
     return el.is_completed === 1;
   });
 

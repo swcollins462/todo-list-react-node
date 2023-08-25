@@ -10,7 +10,7 @@ function TodoItem(props) {
   function completedClicked() {
     const isCompleted = 1;
     const dateCompleted = Date.now();
-    props.markCompleted(props.id, isCompleted, dateCompleted)
+    props.markCompleted(props.id, isCompleted, dateCompleted);
   }
 
   return (
@@ -28,7 +28,7 @@ function TodoItem(props) {
         </button>
       </div>
     </li>
-  )
+  );
 }
 
 export default function TodoList({ todos, deleteTodo, markCompleted }) {
@@ -50,5 +50,5 @@ export default function TodoList({ todos, deleteTodo, markCompleted }) {
     <div className='todo-list'>
         <ul>{TodosJsx}</ul>
     </div>
-  )
+  );
 }
