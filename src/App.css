@@ -172,11 +172,7 @@ h1 {
     color: #00ca7f;
 }
 
-@media (max-width: 480px) {
-    html {
-        font-size: 8px;
-    }
-
+@media (max-width: 925px) {
     h1 {
         margin-bottom: 1.5rem;
     }
@@ -217,5 +213,17 @@ h1 {
 
     .delete-btn {
         margin-left: 1.5rem;
+    }
+}
+
+@media (max-width: 700px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 8px;
     }
 }
